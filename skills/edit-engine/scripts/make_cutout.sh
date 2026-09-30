@@ -17,6 +17,7 @@
 set -euo pipefail
 
 DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+if [ $# -lt 2 ]; then sed -n '2,4p' "$0" | sed 's/^# \{0,1\}//'; exit 2; fi
 BIN="${EDIT_ENGINE_BIN:-$HOME/.cache/edit-engine}/cutout_video"
 if [ ! -x "$BIN" ] || [ "$DIR/cutout_video.swift" -nt "$BIN" ]; then
   mkdir -p "$(dirname "$BIN")"

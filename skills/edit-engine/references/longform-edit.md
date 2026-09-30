@@ -5,7 +5,7 @@ speaker, with graphics that carry structure the voice alone cannot.
 
 ## Steps
 
-1. **Probe and set up.** `ffprobe` the file (duration, resolution, fps, audio).
+1. **Probe and set up.** `ffprobe` the file (duration, resolution, fps, audio). `raw.mov` below stands for your source file; every output name is derived from the input stem.
    Create `projects/<slug>/`, note the source path in `projects/<slug>/NOTES.md`.
 2. **Transcribe.** `python3 $S/transcribe.py raw.mov projects/<slug>/raw.words.json --lang <code>`.
    Check the words-per-second figure: ~2-3 is normal speech. Far lower usually means
@@ -26,6 +26,11 @@ speaker, with graphics that carry structure the voice alone cannot.
    - *filler*: cut only where it breaks rhythm. Removing every "um" makes speech robotic.
    Also skim the full transcript yourself. The detector misses retakes that were
    reworded, and zero candidates does not mean zero mistakes.
+   Whisper can also drop an exact restart from the transcript entirely ("heute zeige
+   ich dir, äh, heute zeige ich dir" comes back once), so the text reads fluent and
+   no tool sees it. Where a sentence sounds like it was restarted, or a word's
+   timing looks stretched, re-transcribe just that stretch (a 5-10 s sub-clip) and
+   compare. A hard word-sync failure in step 7 is the same symptom after the fact.
    Present the list with a recommendation per row and get approval (or follow a
    standing instruction to decide yourself). Write `approved.json`.
 5. **Apply and render once.**

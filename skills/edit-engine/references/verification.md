@@ -34,8 +34,8 @@ a clean lint and an existing file are not evidence.
 | duration vs expected | within one frame | off by more: stale file, missing tail, wrong cut list |
 | black ≥ 0.1 s | none, or intended fades only | any unplanned interval, usually a clip whose timeline ends early |
 | frozen ≥ 1.5 s | only intended holds (end card) | a freeze under moving speech means a stalled video layer |
-| loudness | talking head about -16 LUFS, promo about -14 LUFS, true peak ≤ -1 dBTP | peak above 0 dBTP: limit it. Re-encoding AAC can push peaks up, so measure after the final encode |
-| word sync | median within ±50 ms, p95 under ~150 ms | large drift at the start or at one spot: the first transcript was wrong there, so retime graphics to `fresh.words.json`. Drift growing over time: wrong fps or speed |
+| loudness | talking head about -16 LUFS, promo about -14 LUFS, true peak ≤ -1 dBTP | peak above 0 dBTP: limit it. Too quiet: one `loudnorm` pass on the final encode (`-af loudnorm=I=-16:TP=-1.5:LRA=11`), then measure again. Re-encoding AAC can push peaks up, so measure after the final encode |
+| word sync | median within ±50 ms, p95 under ~150 ms | large drift at the start or at one spot: the first transcript was wrong there, so retime graphics to `fresh.words.json`. Drift growing over time: wrong fps or speed. Hard drift around one sentence can also mean the first transcript missed a spoken restart: re-transcribe that stretch |
 | beat offsets (promo) | hard cuts within ~35 ms of beat or half beat | re-derive times from the grid, not by hand |
 
 ## `VERIFY.md`
