@@ -1,0 +1,18 @@
+{
+  "name": "edit-engine",
+  "description": "Edit real footage into finished videos with Claude Code, ffmpeg and HyperFrames: long-form edits, 9:16 shorts, style from a reference, promo spots, and a verification loop.",
+  "author": {
+    "name": "Vishal Punia"
+  },
+  "license": "MIT",
+  "keywords": [
+    "video",
+    "editing",
+    "ffmpeg",
+    "whisper",
+    "hyperframes",
+    "shorts"
+  ],
+  "version": "1.0.0",
+  "homepage": "https://github.com/businesspunia-gif/edit-engine"
+}

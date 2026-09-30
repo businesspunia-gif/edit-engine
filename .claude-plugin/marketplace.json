@@ -1,0 +1,13 @@
+{
+  "name": "edit-engine",
+  "owner": {
+    "name": "Vishal Punia"
+  },
+  "plugins": [
+    {
+      "name": "edit-engine",
+      "source": "./",
+      "description": "Edit real footage into finished videos with Claude Code, ffmpeg and HyperFrames: long-form edits, 9:16 shorts, style from a reference, promo spots, and a verification loop."
+    }
+  ]
+}
